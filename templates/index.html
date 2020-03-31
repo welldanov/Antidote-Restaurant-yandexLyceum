@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Antidote</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicons
+        ================================================== -->
+    <link rel="shortcut icon" href="static/img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="static/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="static/img/apple-touch-icon-114x114.png">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="static/fonts/font-awesome/css/font-awesome.css">
+
+    <!-- Stylesheet
+        ================================================== -->
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/nivo-lightbox/nivo-lightbox.css">
+    <link rel="stylesheet" type="text/css" href="static/css/nivo-lightbox/default.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap&subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,500,600,700&display=swap&subset=cyrillic"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- Navigation
+    ==========================================-->
+<nav id="menu" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1"><span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+            <a class="navbar-brand page-scroll" href="#page-top">Antidote</a></div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#about" class="page-scroll">О нас</a></li>
+                <li><a href="#restaurant-menu" class="page-scroll">Меню</a></li>
+                <li><a href="#portfolio" class="page-scroll">Галерея</a></li>
+                <li><a href="#team" class="page-scroll">Повара</a></li>
+                {% if current_user.is_authenticated %}
+                <li><a href="/logout" class="page-scroll">Выйти</a></li>
+                    {% if current_user.is_authenticated %}
+                    <li><a href="reviews" class="page-scroll">Профиль</a></li>
+                    {% endif %}
+                        {% if current_user.is_authenticated %}
+                        <li><a href="{{ url_for('some_reservation') }}" class="page-scroll">Резервация</a></li>
+                        {% endif %}
+                {% else %}
+                <li><a href="{{ url_for('login') }}" class="page-scroll">Войти</a></li>
+                <li><a href="{{ url_for('register') }}" class="page-scroll">Регистрация</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</nav>
+<!-- Header -->
+<header id="header">
+    <div class="intro">
+        <div class="overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="intro-text">
+                        <h1>Antidote</h1>
+                        <p>Restaurant / Coffee</p>
+                        <a href="#about" class="btn btn-custom btn-lg page-scroll">Читать историю</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- About Section -->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-6 ">
+                <div class="about-img"><img src="static/img/about2.jpg" class="img-responsive" alt=""></div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="about-text">
+                    <h2>История</h2>
+                    <hr>
+                    <p>Ресторан основали в далеком 1983-ем году. До нынешнего времени Antidote не привлекала людей, но
+                        сейчас этот ресторан обладает тремя звездами Michelin. Ресторан входит в 50 лучших Ресторанов
+                        мира по версии британского журнала The Restaurant.</p>
+                    <h3>Шеф повар</h3>
+                    <p>Мы хотим поблагодарить нашего Шеф повара. Именно его фирменный рецепт приобрел большую
+                        популярность во всей России.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Restaurant Menu Section -->
+<div id="restaurant-menu">
+    <div class="section-title text-center center">
+        <div class="overlay">
+            <h2>Меню</h2>
+            <hr>
+            <p>Только свежие продукты!</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <div class="menu-section">
+                    <h2 class="menu-section-title">Завтрак & Закуски</h2>
+                    <hr>
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Яичница с беконном</div>
+                        <div class="menu-item-price"> 500 руб.</div>
+                        <div class="menu-item-description"> Тушеные помидоры, 6 перепелиных яиц, 2 ломтика бекона, соль
+                            и перец по вкусу.
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Хрустящие булочки</div>
+                        <div class="menu-item-price"> 100 руб.</div>
+                        <div class="menu-item-description"> 2-е булочки. Булочки собственного приготовления.
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Киш со шпинатом и сыром</div>
+                        <div class="menu-item-price"> 750 руб.</div>
+                        <div class="menu-item-description"> Слоеное тесто, 3 яица, сливки, сыр риккота, шпинат, кедровые
+                            орехи,
+                            тертый пармезан, оливковое масло, соль и перец по вкусу.
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Смузи из банана и манго</div>
+                        <div class="menu-item-price"> 300 руб.</div>
+                        <div class="menu-item-description"> 1 манго, 1 банан, молоко, мед, ванилин.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <div class="menu-section">
+                    <h2 class="menu-section-title">Основное</h2>
+                    <hr>
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Фланк-стейк с овощами гриль и соусом из черного перца</div>
+                        <div class="menu-item-price"> 1100 руб.</div>
+                        <div class="menu-item-description"> Говядина, молотый черный перец, молотый красный перец,
+                            крупная соль, растительное масло,
+                            овощи гриль.
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Телятина, тушеная в томатном соусе</div>
+                        <div class="menu-item-price"> 990 руб.</div>
+                        <div class="menu-item-description"> Телятина на кости, помидоры, луковица, чеснок, лавровый
+                            лист,
+                            сушеный базилик, мука.
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Рубленый бифштекс</div>
+                        <div class="menu-item-price"> 850 руб.</div>
+                        <div class="menu-item-description"> Говядина, говяжье сало, куриное яицо, молоко, соль, перец,
+                            зелень.
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Филе-миньон с кукурузой гриль</div>
+                        <div class="menu-item-price"> 900 руб.</div>
+                        <div class="menu-item-description"> С жареными грибами и перечным соусом.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <div class="menu-section">
+                    <h2 class="menu-section-title">Ужин</h2>
+                    <hr>
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Камбала с цукини в соусе биск</div>
+                        <div class="menu-item-price"> 600 руб.</div>
+                        <div class="menu-item-description"> Филе камбалы с овощами и соусом биск.
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Паста с креветками</div>
+                        <div class="menu-item-price"> 500 руб.</div>
+                        <div class="menu-item-description"> Тальятелле с тигровыми креветками в креветочном соусе.
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Стейк бавет</div>
+                        <div class="menu-item-price"> 900 руб.</div>
+                        <div class="menu-item-description"> Стейк из говядины с миксом салата и домашней оджикой.
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Соте из морепродуктов</div>
+                        <div class="menu-item-price"> 450 руб.</div>
+                        <div class="menu-item-description"> Ассорти из морепродуктов в томатном соусе, подается с
+                            ломтиком
+                            толстого хлеба.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <div class="menu-section">
+                    <h2 class="menu-section-title">Кофе & Напитки</h2>
+                    <hr>
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Капучино</div>
+                        <div class="menu-item-price"> 200 руб.</div>
+                        <div class="menu-item-description"> Молотый кофе, сахар, вода.
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Чай Эрл Грей 1л.</div>
+                        <div class="menu-item-price"> 500 руб.</div>
+                        <div class="menu-item-description"> Черный чай с бергамотом.
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Свежевыжитый яблочный сок</div>
+                        <div class="menu-item-price"> 150 руб.</div>
+                        <div class="menu-item-description"> ТОЛЬКО свежие яблоки.
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name"> Шоколадный Мокачино</div>
+                        <div class="menu-item-price"> 300 руб.</div>
+                        <div class="menu-item-description"> Эспрессо, шоколад или шоколадный соус, цельное молоко,
+                            взбитые сливки.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio Section -->
+<div id="portfolio">
+    <div class="section-title text-center center">
+        <div class="overlay">
+            <h2>Галерея</h2>
+            <hr>
+            <p>Самые вкусные блюда по мнению наших посетителей.</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="categories">
+                <ul class="cat">
+                    <li>
+                        <ol class="type">
+                            <li><a href="#" data-filter="*" class="active">Все</a></li>
+                            <li><a href="#" data-filter=".breakfast">Завтрак</a></li>
+                            <li><a href="#" data-filter=".lunch">Обед</a></li>
+                            <li><a href="#" data-filter=".dinner">Ужин</a></li>
+                        </ol>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="portfolio-items">
+                <div class="col-sm-6 col-md-4 col-lg-4 breakfast">
+                    <div class="portfolio-item">
+                        <div class="hover-bg"><a href="static/img/portfolio/01-large.jpg" title="Лучшее блюдо"
+                                                 data-lightbox-gallery="gallery1">
+                            <div class="hover-text">
+                                <h4>Лучшее блюдо</h4>
+                            </div>
+                            <img src="static/img/portfolio/01-small.jpg" class="img-responsive" alt="Project Title">
+                        </a></div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-4 dinner">
+                    <div class="portfolio-item">
+                        <div class="hover-bg"><a href="static/img/portfolio/02-large.jpg" title="Лучшее блюдо"
+                                                 data-lightbox-gallery="gallery1">
+                            <div class="hover-text">
+                                <h4>Лучшее блюдо</h4>
+                            </div>
+                            <img src="static/img/portfolio/02-small.jpg" class="img-responsive" alt="Project Title">
+                        </a></div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-4 breakfast">
+                    <div class="portfolio-item">
+                        <div class="hover-bg"><a href="static/img/portfolio/03-large.jpg" title="Лучшее блюдо"
+                                                 data-lightbox-gallery="gallery1">
+                            <div class="hover-text">
+                                <h4>Лучшее блюдо</h4>
+                            </div>
+                            <img src="static/img/portfolio/03-small.jpg" class="img-responsive" alt="Project Title">
+                        </a></div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-4 breakfast">
+                    <div class="portfolio-item">
+                        <div class="hover-bg"><a href="static/img/portfolio/04-large.jpg" title="Лучшее блюдо"
+                                                 data-lightbox-gallery="gallery1">
+                            <div class="hover-text">
+                                <h4>Лучшее блюдо</h4>
+                            </div>
+                            <img src="static/img/portfolio/04-small.jpg" class="img-responsive" alt="Project Title">
+                        </a></div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-4 dinner">
+                    <div class="portfolio-item">
+                        <div class="hover-bg"><a href="static/img/portfolio/05-large.jpg" title="Лучшее блюдо"
+                                                 data-lightbox-gallery="gallery1">
+                            <div class="hover-text">
+                                <h4>Лучшее блюдо</h4>
+                            </div>
+                            <img src="static/img/portfolio/05-small.jpg" class="img-responsive" alt="Project Title">
+                        </a></div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-4 lunch">
+                    <div class="portfolio-item">
+                        <div class="hover-bg"><a href="static/img/portfolio/06-large.jpg" title="Лучшее блюдо"
+                                                 data-lightbox-gallery="gallery1">
+                            <div class="hover-text">
+                                <h4>Лучшее блюдо</h4>
+                            </div>
+                            <img src="static/img/portfolio/06-small.jpg" class="img-responsive" alt="Project Title">
+                        </a></div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-4 lunch">
+                    <div class="portfolio-item">
+                        <div class="hover-bg"><a href="static/img/portfolio/07-large.jpg" title="Лучшее блюдо"
+                                                 data-lightbox-gallery="gallery1">
+                            <div class="hover-text">
+                                <h4>Лучшее блюдо</h4>
+                            </div>
+                            <img src="static/img/portfolio/07-small.jpg" class="img-responsive" alt="Project Title">
+                        </a></div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-4 breakfast">
+                    <div class="portfolio-item">
+                        <div class="hover-bg"><a href="static/img/portfolio/08-large.jpg" title="Лучшее блюдо"
+                                                 data-lightbox-gallery="gallery1">
+                            <div class="hover-text">
+                                <h4>Лучшее блюдо</h4>
+                            </div>
+                            <img src="static/img/portfolio/08-small.jpg" class="img-responsive" alt="Project Title">
+                        </a></div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-4 dinner">
+                    <div class="portfolio-item">
+                        <div class="hover-bg"><a href="static/img/portfolio/09-large.jpg" title="Лучшее блюдо"
+                                                 data-lightbox-gallery="gallery1">
+                            <div class="hover-text">
+                                <h4>Лучшее блюдо</h4>
+                            </div>
+                            <img src="static/img/portfolio/09-small.jpg" class="img-responsive" alt="Project Title">
+                        </a></div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-4 lunch">
+                    <div class="portfolio-item">
+                        <div class="hover-bg"><a href="static/img/portfolio/10-large.jpg" title="Лучшее блюдо"
+                                                 data-lightbox-gallery="gallery1">
+                            <div class="hover-text">
+                                <h4>Лучшее блюдо</h4>
+                            </div>
+                            <img src="static/img/portfolio/10-small.jpg" class="img-responsive" alt="Project Title">
+                        </a></div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-4 lunch">
+                    <div class="portfolio-item">
+                        <div class="hover-bg"><a href="static/img/portfolio/11-large.jpg" title="Лучшее блюдо"
+                                                 data-lightbox-gallery="gallery1">
+                            <div class="hover-text">
+                                <h4>Лучшее блюдо</h4>
+                            </div>
+                            <img src="static/img/portfolio/11-small.jpg" class="img-responsive" alt="Project Title">
+                        </a></div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-4 breakfast">
+                    <div class="portfolio-item">
+                        <div class="hover-bg"><a href="static/img/portfolio/12-large.jpg" title="Лучшее блюдо"
+                                                 data-lightbox-gallery="gallery1">
+                            <div class="hover-text">
+                                <h4>Лучшее блюдо</h4>
+                            </div>
+                            <img src="static/img/portfolio/12-small.jpg" class="img-responsive" alt="Project Title">
+                        </a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Team Section -->
+<div id="team" class="text-center">
+    <div class="overlay">
+        <div class="container">
+            <div class="col-md-10 col-md-offset-1 section-title">
+                <h2>Три Лучших Повара</h2>
+                <hr>
+                <p>Не могу не отметить трех лучших поваров ресторана Antidote.</p>
+            </div>
+            <div id="row">
+                <div class="col-md-4 team">
+                    <div class="thumbnail">
+                        <div class="team-img"><img src="static/img/team/1.png" alt="..."></div>
+                        <div class="caption">
+                            <h3>Майк</h3>
+                            <p>Шеф повар.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 team">
+                    <div class="thumbnail">
+                        <div class="team-img"><img src="static/img/team/3.png" alt="..."></div>
+                        <div class="caption">
+                            <h3>Алана</h3>
+                            <p>Мастер по рыбе.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 team">
+                    <div class="thumbnail">
+                        <div class="team-img"><img src="static/img/team/2.png" alt="..."></div>
+                        <div class="caption">
+                            <h3>Лиам</h3>
+                            <p>Мастер по мясу.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <div class="container text-center">
+        <div class="col-md-4">
+            <h3>Адрес</h3>
+            <div class="contact-item">
+                <p>ул. Моховая, 15/1, стр. 1</p>
+                <p>г. Москва, 125009</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h3>Цасы работы</h3>
+            <div class="contact-item">
+                <p>Понедельник-Пятница: 10:00 - 23:00 </p>
+                <p>Суббота: 11:00 - 21:00</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h3>Контактная информация</h3>
+            <div class="contact-item">
+                <p>Телефон: +1 234 5678</p>
+                <p>Email: antidote@restaurant.com</p>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid text-center copyrights">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="social">
+                <ul>
+                    <li><a href="#"><i class="fa fa-vk"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                </ul>
+            </div>
+            <p>&copy; 2020 Antidote. Все права защищены.</p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="static/js/jquery.1.11.1.js"></script>
+<script type="text/javascript" src="static/js/bootstrap.js"></script>
+<script type="text/javascript" src="static/js/SmoothScroll.js"></script>
+<script type="text/javascript" src="static/js/nivo-lightbox.js"></script>
+<script type="text/javascript" src="static/js/jquery.isotope.js"></script>
+<script type="text/javascript" src="static/js/jqBootstrapValidation.js"></script>
+<script type="text/javascript" src="static/js/contact_me.js"></script>
+<script type="text/javascript" src="static/js/main.js"></script>
+</body>
+</html>

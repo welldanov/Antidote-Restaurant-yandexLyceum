@@ -1,0 +1,140 @@
+/* Fonts */
+@font-face {
+	font-family: 'Peace Sans';
+	src: url('../fonts/fonts/Peace Sans.eot');
+	src: local('☺'), url('../fonts/fonts/Peace Sans.woff') format('woff'), url('../fonts/fonts/Peace Sans.ttf') format('truetype'), url('../fonts/fonts/Peace Sans.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+    font-family: 'Mont-Black';
+    src: local('Mont Black'), local('Mont-Black'),
+        url('../fonts/fonts/Mont-Black.woff2') format('woff2'),
+        url('../fonts/fonts/Mont-Black.woff') format('woff'),
+        url('../fonts/fonts/Mont-Black.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'Mont-Regular';
+    src: local('Mont Regular'), local('Mont-Regular'),
+        url('../fonts/fonts/Mont-Regular.woff2') format('woff2'),
+        url('../fonts/fonts/Mont-Regular.woff') format('woff'),
+        url('../fonts/fonts/Mont-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+ @font-face {
+    font-family: 'Mont-Semi';
+    src: local('Mont Semi Bold'), local('Mont-Semi-Bold'),
+        url('../fonts/fonts/Mont-SemiBold.woff2') format('woff2'),
+        url('../fonts/fonts/Mont-SemiBold.woff') format('woff'),
+        url('../fonts/fonts/Mont-SemiBold.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+
+/* Form design */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.form {
+    background: #fff;
+    z-index: 0;
+    width: 350px;
+    padding: 32px;
+    border-radius: 0;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+}
+.form_input,
+.form_button
+.form_button_out{
+    font-family: 'Mont-Regular';
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+
+.form_title {
+    font-family: 'Mont-Black';
+    text-align: center;
+    margin: 0 0 32px 0;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+}
+.form_group {
+    position: relative;
+    margin-bottom: 32px;
+}
+.form_label {
+    font-family: 'Mont-Regular';
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    color: #9e9e9e;
+    transition: 0.9s;
+}
+
+.form_input {
+    width: 100%;
+    padding: 0 0 10px 0;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: transparent;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form_input:focus {
+    border-bottom: 1px solid #1a73a8;
+}
+
+.form_button {
+    font-family: "Mont-Regular"; sans-serif;
+    padding: 10px 56px;
+    border: none;
+    border-radius: 2px;
+    color: #fff;
+    background-color: #000;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form_button:focus,
+.form_button:hover  {
+    background-color: rgba(0, 113, 240, 0.7);
+}
+
+.form_input:focus ~ .form_label,
+.form_input:not(:placeholder-shown) ~ .form_label {
+    top: -18px;
+    font-size: 12px;
+    color: #e0e0e0;
+}
+
+.error {
+    position: relative;
+}
+
+.message_error {
+    font-family: "Mont-Regular"; sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    color: #ad3232;
+    text-align: center;
+}
+
+
+.antidote{
+    font-family: "Mont-Regular"; sans-serif;
+    position: absolute;
+    bottom: 18px;
+    left: 12px;
+    font-size: 11px;
+    color: #fff;
+}
