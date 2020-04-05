@@ -56,14 +56,15 @@
                 <li><a href="#restaurant-menu" class="page-scroll">Меню</a></li>
                 <li><a href="#portfolio" class="page-scroll">Галерея</a></li>
                 <li><a href="#team" class="page-scroll">Повара</a></li>
+                <li><a href="" class="page-scroll">Города</a></li>
+                {% if current_user.is_authenticated %}
+                <li><a href="reviews" class="page-scroll">Отзывы</a></li>
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('some_reservation') }}" class="page-scroll">Бронирование</a></li>
+                {% endif %}
                 {% if current_user.is_authenticated %}
                 <li><a href="/logout" class="page-scroll">Выйти</a></li>
-                    {% if current_user.is_authenticated %}
-                    <li><a href="reviews" class="page-scroll">Профиль</a></li>
-                    {% endif %}
-                        {% if current_user.is_authenticated %}
-                        <li><a href="{{ url_for('some_reservation') }}" class="page-scroll">Резервация</a></li>
-                        {% endif %}
                 {% else %}
                 <li><a href="{{ url_for('login') }}" class="page-scroll">Войти</a></li>
                 <li><a href="{{ url_for('register') }}" class="page-scroll">Регистрация</a></li>

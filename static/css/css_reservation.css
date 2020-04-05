@@ -52,7 +52,6 @@
     font-style: normal;
   }
 
-/* Form design */
 .section {
 	position: relative;
 	height: 100vh;
@@ -69,7 +68,6 @@
 
 #booking {
 	font-family: 'Montserrat', sans-serif;
-	background-image: url('../img/background.jpg');
 	background-size: cover;
 	background-position: center;
 }
@@ -81,12 +79,14 @@
 	right: 0;
 	bottom: 0;
 	top: 0;
-	background: rgba(47, 103, 177, 0.6);
+	background: rgba(47, 103, 177, 0.5);
 }
 
 .booking-form {
+    position: relative;
+    left: 30px;
 	background-color: #fff;
-	padding: 50px 20px;
+	padding: 40px 18px;
 	-webkit-box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.3);
 	box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.3);
 	border-radius: 4px;
@@ -190,4 +190,47 @@
 .booking-cta p {
 	font-size: 16px;
 	color: rgba(255, 255, 255, 0.8);
+}
+
+.error {
+    position: relative;
+    bottom: -22px;
+}
+
+.message_error {
+    font-family: "Mont-Regular"; sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    color: #ad3232;
+    text-align: center;
+}
+
+.close {
+position: absolute;
+right: 32px;
+top: 32px;
+width: 32px;
+height: 32px;
+opacity: 0.3;
+}
+
+.close:hover {
+opacity: 1;
+}
+
+.close:before, .close:after {
+position: absolute;
+left: 15px;
+content: ' ';
+height: 33px;
+width: 2px;
+background-color: #333;
+}
+
+.close:before {
+transform: rotate(45deg);
+}
+
+.close:after {
+transform: rotate(-45deg);
 }

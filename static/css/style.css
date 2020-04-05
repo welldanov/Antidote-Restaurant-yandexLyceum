@@ -745,3 +745,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
     text-align: center;
     bottom: -19px;
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-child {
+    display: none;
+    background-color: black;
+    min-width: 200px;
+}
+.dropdown-child a {
+    color: white;
+    padding: 20px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown:hover .dropdown-child {
+    display: block;
+}

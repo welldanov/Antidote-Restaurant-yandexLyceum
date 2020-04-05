@@ -169,6 +169,7 @@ body {
     font-family: "Mont-Regular"; sans-serif;
     font-size: 14px;
     letter-spacing: 0.5px;
+    bottom: 10px;
     color: #ad3232;
     text-align: center;
 }

@@ -62,13 +62,14 @@ class Reservation(SqlAlchemyBase, UserMixin, SerializerMixin):
     created_date = sqlalchemy.Column(sqlalchemy.DateTime,
                                      default=datetime.datetime.now)
     table_number = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    count = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     user_id = sqlalchemy.Column(sqlalchemy.Integer,
                                 sqlalchemy.ForeignKey("users.id"))
     user = orm.relation('User')
 
     def __repr__(self):
-        return "<Reservation(email='%s', created_date='%s', user_id='%s', table_number='%s')>" % (
-            self.email, self.created_date, self.user_id, self.table_number)
+        return "<Reservation(email='%s', created_date='%s', user_id='%s', table_number='%s', count='%s')>" % (
+            self.email, self.created_date, self.user_id, self.table_number, self.count)
 
 
 class RegisterForm(FlaskForm):
@@ -99,9 +100,16 @@ class ReservationForm(FlaskForm):
         ("3", "3"),
         ("4", "4"),
         ("5", "5"),
-        ("6", "6"),
+        ("6 VIP", "6 VIP"),
         ("7", "7"),
         ("8", "8"),
-        ("9", "9"),
+        ("9 VIP", "9 VIP"),
         ("10", "10")])
+    count_of_people = SelectField('Select', default="4", choices=[
+        ("1", "1"),
+        ("2", "2"),
+        ("3", "3"),
+        ("4", "4"),
+        ("5", "5"),
+        ("6", "6")])
     submit = SubmitField('Отправить')
