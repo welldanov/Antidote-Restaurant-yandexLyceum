@@ -24,6 +24,7 @@ class User(SqlAlchemyBase, UserMixin, SerializerMixin):
                                      default=datetime.datetime.now)
     review = orm.relation("Help", back_populates='user')
     reservation = orm.relation("Reservation", back_populates="user")
+    request = orm.relation("Request", back_populates="user")
 
     def __repr__(self):
         return "<User(email='%s')>" % (
@@ -70,6 +71,28 @@ class Reservation(SqlAlchemyBase, UserMixin, SerializerMixin):
     def __repr__(self):
         return "<Reservation(email='%s', created_date='%s', user_id='%s', table_number='%s', count='%s')>" % (
             self.email, self.created_date, self.user_id, self.table_number, self.count)
+
+
+class Request(SqlAlchemyBase, UserMixin, SerializerMixin):
+    __tablename__ = 'request'
+
+    id = sqlalchemy.Column(sqlalchemy.Integer,
+                           primary_key=True, autoincrement=True)
+    place = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    created_date = sqlalchemy.Column(sqlalchemy.DateTime,
+                                     default=datetime.datetime.now)
+    user_id = sqlalchemy.Column(sqlalchemy.Integer,
+                                sqlalchemy.ForeignKey("users.id"))
+    user = orm.relation('User')
+
+    def __repr__(self):
+        return "<Request(place='%s', created_date='%s', user_id='%s')>" % (
+            self.place, self.created_date, self.user_id)
+
+
+class RequestForm(FlaskForm):
+    place = StringField(validators=[DataRequired()])
+    submit = SubmitField('Показать')
 
 
 class RegisterForm(FlaskForm):

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" http-equiv="Pragma" content="no-cache" />
+    <link rel="stylesheet" type="text/css" href="static/css/css_api.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>{{title}}</title>
+</head>
+<body>
+<form class="form" method="post">
+    {{ form.hidden_tag() }}
+    {{ form.csrf_token }}
+    {{ form.place(class="form_input", type='text', placeholder="Введите город") }}
+    {{ form.submit(type="submit", class="form_button") }}
+    <p class="message_error">{{message}}</p>
+    <img class="img" src="\static\img\map\map.png?1222259157.415" alt="">
+    <p class="prompt">Ctrl+F5 = Ваш лучший друг на этой странице!</p>
+</form>
+</body>
+</html>

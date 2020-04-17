@@ -1,0 +1,96 @@
+/* Fonts */
+@font-face {
+    font-family: 'Yandex Sans Medium';
+    src: local('Yandex Sans Text Medium'), local('Yandex-Sans-Text-Medium'),
+        url('../fonts/fonts/YandexSansText-Medium.woff2') format('woff2'),
+        url('../fonts/fonts/YandexSansText-Medium.woff') format('woff'),
+        url('../fonts/fonts/YandexSansText-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'Yandex Sans';
+    src: local('Yandex Sans Text Regular'), local('Yandex-Sans-Text-Regular'),
+        url('../fonts/fonts/YandexSansText-Regular.woff2') format('woff2'),
+        url('../fonts/fonts/YandexSansText-Regular.woff') format('woff'),
+        url('../fonts/fonts/YandexSansText-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+@font-face {
+	font-family: 'Peace Sans';
+	src: url('../fonts/fonts/Peace Sans.eot');
+	src: local('☺'), url('../fonts/fonts/Peace Sans.woff') format('woff'), url('../fonts/fonts/Peace Sans.ttf') format('truetype'), url('../fonts/fonts/Peace Sans.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+    font-family: 'Mont-Black';
+    src: local('Mont Black'), local('Mont-Black'),
+        url('../fonts/fonts/Mont-Black.woff2') format('woff2'),
+        url('../fonts/fonts/Mont-Black.woff') format('woff'),
+        url('../fonts/fonts/Mont-Black.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'Mont-Regular';
+    src: local('Mont Regular'), local('Mont-Regular'),
+        url('../fonts/fonts/Mont-Regular.woff2') format('woff2'),
+        url('../fonts/fonts/Mont-Regular.woff') format('woff'),
+        url('../fonts/fonts/Mont-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+ @font-face {
+    font-family: 'Mont-Semi';
+    src: local('Mont Semi Bold'), local('Mont-Semi-Bold'),
+        url('../fonts/fonts/Mont-SemiBold.woff2') format('woff2'),
+        url('../fonts/fonts/Mont-SemiBold.woff') format('woff'),
+        url('../fonts/fonts/Mont-SemiBold.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+/* Form design */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form{
+    text-align: center;
+}
+
+.form_title {
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    margin: 0 0 42px 0;
+    letter-spacing: 1px;
+    color: #8eb640;
+    font-size: 60px;
+    transition: 0.3s;
+}
+
+.img {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    transition: 0.3s;
+    top: -40px;
+}
+
+.move{
+    position: relative;
+    top: -60px;
+    transition: 0.3s;
+}
+
+p{
+    position: relative;
+    font-family: 'Mont-Regular';
+    font-size: 23px;
+    top: -40px;
+    transition: 0.3s;
+}

@@ -146,7 +146,6 @@ body {
     outline: none;
     cursor: pointer;
     transition: 0.3s;
-
 }
 
 .form_button:focus,
@@ -182,4 +181,34 @@ body {
     left: 12px;
     font-size: 11px;
     color: #fff;
+}
+
+.close {
+position: absolute;
+right: 528px;
+top: 140px;
+width: 32px;
+height: 32px;
+opacity: 0.5;
+}
+
+.close:hover {
+opacity: 1;
+}
+
+.close:before, .close:after {
+position: absolute;
+left: 15px;
+content: ' ';
+height: 22px;
+width: 1.5px;
+background-color: #333;
+}
+
+.close:before {
+transform: rotate(45deg);
+}
+
+.close:after {
+transform: rotate(-45deg);
 }

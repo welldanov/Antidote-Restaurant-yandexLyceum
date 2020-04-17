@@ -9,7 +9,7 @@
 
     <!-- Favicons
         ================================================== -->
-    <link rel="shortcut icon" href="static/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="static/img/icons/pan.png" type="images/x-ico">
     <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="static/img/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="static/img/apple-touch-icon-114x114.png">
@@ -56,7 +56,9 @@
                 <li><a href="#restaurant-menu" class="page-scroll">Меню</a></li>
                 <li><a href="#portfolio" class="page-scroll">Галерея</a></li>
                 <li><a href="#team" class="page-scroll">Повара</a></li>
-                <li><a href="" class="page-scroll">Города</a></li>
+                {% if current_user.is_authenticated %}
+                <li><a href="api" class="page-scroll">Города</a></li>
+                {% endif %}
                 {% if current_user.is_authenticated %}
                 <li><a href="reviews" class="page-scroll">Отзывы</a></li>
                 {% endif %}
@@ -488,13 +490,6 @@
     </div>
     <div class="container-fluid text-center copyrights">
         <div class="col-md-8 col-md-offset-2">
-            <div class="social">
-                <ul>
-                    <li><a href="#"><i class="fa fa-vk"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                </ul>
-            </div>
             <p>&copy; 2020 Antidote. Все права защищены.</p>
         </div>
     </div>
