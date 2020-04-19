@@ -1,1 +1,1 @@
-web: gunicorn src.antidote-restaurant:app --log-file=-
+web: gunicorn antidote-restaurant:app --log-file=-
