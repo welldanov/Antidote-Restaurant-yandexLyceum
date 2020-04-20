@@ -26,11 +26,6 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/main')
-def main():
-    return render_template('main.html')
-
-
 @app.route('/reservation', methods=['GET', 'POST'])
 def some_reservation():
     form = ReservationForm()
@@ -184,4 +179,4 @@ def api():
 
 if __name__ == '__main__':
     db_session.global_init("db/blogs.sqlite")
-    app.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
+    app.run(debug=True)
