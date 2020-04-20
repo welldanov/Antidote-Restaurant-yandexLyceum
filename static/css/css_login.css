@@ -45,6 +45,7 @@ body {
     background: #fff;
     z-index: 0;
     width: 350px;
+    height: 427px;
     padding: 32px;
     border-radius: 0;
     font-family: sans-serif;
@@ -186,7 +187,7 @@ body {
 .close {
 position: relative;
 left: 27px;
-top: -382px;
+top: -380px;
 width: 32px;
 height: 32px;
 opacity: 0.5;
