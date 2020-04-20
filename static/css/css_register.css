@@ -140,9 +140,9 @@ body {
 }
 
 .close {
-position: absolute;
-right: 528px;
-top: 150px;
+position: relative;
+left: 29px;
+top: -368px;
 width: 32px;
 height: 32px;
 opacity: 0.5;

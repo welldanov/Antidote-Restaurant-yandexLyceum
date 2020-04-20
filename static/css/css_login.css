@@ -184,9 +184,9 @@ body {
 }
 
 .close {
-position: absolute;
-right: 528px;
-top: 140px;
+position: relative;
+left: 27px;
+top: -382px;
 width: 32px;
 height: 32px;
 opacity: 0.5;
