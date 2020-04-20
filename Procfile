@@ -1,1 +1,1 @@
-web: gunicorn antidote-restaurant:app --log-file=-
+web: python main.py
